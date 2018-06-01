@@ -19,4 +19,4 @@ Auth::routes();
 
 Route::resource('spareparts', 'SparepartController');
 Route::resource('customer', 'CustomerController');
-Route::resource('customer', 'CustomerController');
+Route::resource('invoice', 'invoiceController');
