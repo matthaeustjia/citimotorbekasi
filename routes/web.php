@@ -15,8 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return view('home');
+});
+
 Auth::routes();
 
 Route::resource('spareparts', 'SparepartController');
-Route::resource('customer', 'CustomerController');
-Route::resource('invoice', 'invoiceController');

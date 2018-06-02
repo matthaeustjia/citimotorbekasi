@@ -18,15 +18,15 @@
               </div>
               <div class="col-md-4 mb-3">
                 <label for="validationCustom02">Harga Jual</label>
-                <input type="text" class="form-control" name="sellingprice" id="sellingprice" placeholder="Harga Jual" required>
+                <input type="number" class="form-control" name="sellingprice" id="sellingprice" placeholder="Harga Jual" required>
               </div>
               <div class="col-md-4 mb-3">
                     <label for="validationCustom02">Harga Beli</label>
-                    <input type="text" class="form-control" name="buyingprice" id="buyingprice" placeholder="Harga Beli" required>
+                    <input type="number" class="form-control" name="buyingprice" id="buyingprice" placeholder="Harga Beli" required>
               </div>    
                 <button class="btn btn-primary" type="submit">Submit form</button>
-                <button class="btn btn-warning" type="submit">Reset form</button>
+                <button class="btn btn-warning" type="reset">Reset form</button>
         </div>
       </form>
-
+@include('layouts.validationerror')
 @endsection

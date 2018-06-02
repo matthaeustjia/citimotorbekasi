@@ -12,6 +12,7 @@
             <th>Harga Jual</th>
             <th>Harga Beli</th>
             <th>Stock</th>
+            <th><a href="/spareparts/create"><button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus"></i></button><a/></th>
           </tr>
         </thead>
         <tbody>
@@ -23,8 +24,15 @@
             <td>{{ $sparepart->sellingprice }}</td>
             <td>{{ $sparepart->buyingprice }}</td>
             <td>{{ $sparepart->buyingprice }}</td>
-            <td><button type="button" class="btn btn-warning btn-sm"><i class="far fa-edit"></i></button>
-                <button type="button" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></button>
+
+            <td>
+            <a href="/spareparts/{{$sparepart->id}}/edit/"><button type="button" class="btn btn-warning btn-sm"><i class="far fa-edit fa-fw"></i></button></a>
+            <form action="spareparts/{{$sparepart->id}}" method="POST">
+              @method('DELETE')
+              @csrf
+              <button class="btn btn-danger btn-sm"><i class="far fa-trash-alt fa-fw"></i></button>
+            </form>
+              {{-- <a class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you wanna delete {{$sparepart->no}}')" href="{{ action('SparepartController@destroy',['id' => 1])}}"><i class="far fa-trash-alt"></i></a> --}}
             </td>
             
           </tr>

@@ -12,6 +12,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -36,11 +38,11 @@
              <!-- Sidebar Holder -->
              <nav id="sidebar">
                  <div class="sidebar-header">
-                     <h3>Citi Motor Bekasi</h3>
+                     <a href="/home"><h3>Citi Motor Bekasi</h3></a>
                  </div>
  
                  <ul class="list-unstyled components">
-                     <p>Dashboard</p>
+                     <a href="/home"><p>Dashboard</p></a>
                      <li class="active">
                          <a href="#sparepartsSubmenu" data-toggle="collapse" aria-expanded="false">Spare Parts</a>
                          <ul class="collapse list-unstyled" id="sparepartsSubmenu">
@@ -112,9 +114,8 @@
                     @yield('content')
              </div>
          </div>
- 
- 
- 
+
+
  
  
          <!-- jQuery CDN -->

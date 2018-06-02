@@ -26,6 +26,7 @@ class SparepartController extends Controller
     public function create()
     {
         //
+        return view('spareparts.create');
     }
 
     /**
@@ -36,7 +37,27 @@ class SparepartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        //validate
+        $this->validate(request(), [
+            'no' => 'required',
+            'type' => 'required',
+            'car' => 'required',
+            'sellingprice' => 'required',
+            'buyingprice' => 'required'
+        ]);
+
+        //create a new sparepart, save it into database
+        $sparepart = new SparePart;
+        $sparepart->no = request('no');
+        $sparepart->type = request('type');
+        $sparepart->car = request('car');
+        $sparepart->sellingprice = request('sellingprice');
+        $sparepart->buyingprice = request('buyingprice');
+        $sparepart->save();
+
+        //get list for index
+        return redirect()->action('SparepartController@index');
     }
 
     /**
@@ -59,6 +80,7 @@ class SparepartController extends Controller
     public function edit(Sparepart $sparepart)
     {
         //
+        return view('spareparts.edit', compact('sparepart'));
     }
 
     /**
@@ -71,6 +93,13 @@ class SparepartController extends Controller
     public function update(Request $request, Sparepart $sparepart)
     {
         //
+        $sparepart->no = request('no');
+        $sparepart->type = request('type');
+        $sparepart->car = request('car');
+        $sparepart->sellingprice = request('sellingprice');
+        $sparepart->buyingprice = request('buyingprice');
+        $sparepart->save();
+        return redirect()->action('SparepartController@index');
     }
 
     /**
@@ -82,5 +111,7 @@ class SparepartController extends Controller
     public function destroy(Sparepart $sparepart)
     {
         //
+        $sparepart->delete();
+        return redirect()->action('SparepartController@index');
     }
 }
