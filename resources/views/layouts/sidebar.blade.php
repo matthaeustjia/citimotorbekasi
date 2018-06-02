@@ -47,15 +47,13 @@
                          <a href="#sparepartsSubmenu" data-toggle="collapse" aria-expanded="false">Spare Parts</a>
                          <ul class="collapse list-unstyled" id="sparepartsSubmenu">
                              <li><a href="/spareparts">Lihat Spare Parts</a></li>
-                             <li><a href="/spareparts/create">Tambah spare part</a></li>
                              <li><a href="#">Home 3</a></li>
                          </ul>
                      </li>
                      <li class="active">
                          <a href="#customerSubmenu" data-toggle="collapse" aria-expanded="false">Customer</a>
                          <ul class="collapse list-unstyled" id="customerSubmenu">
-                             <li><a href="#">customer 1</a></li>
-                             <li><a href="#">customer 2</a></li>
+                             <li><a href="/customers">Lihat Customer</a></li>
                              <li><a href="#">customer 3</a></li>
                          </ul>
                      </li>
@@ -80,6 +78,9 @@
                  </ul>
  
                  <ul class="list-unstyled CTAs">
+                        @guest
+                        <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                        @else
                         <li class="active">
                                 <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -90,6 +91,7 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                        @endguest
                         </li>
                      <li><a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a></li>
                  </ul>

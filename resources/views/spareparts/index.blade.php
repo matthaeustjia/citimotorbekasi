@@ -12,7 +12,7 @@
             <th>Harga Jual</th>
             <th>Harga Beli</th>
             <th>Stock</th>
-            <th><a href="/spareparts/create"><button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus"></i></button><a/></th>
+            <th><a href="/spareparts/create"><button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus fa-fw"></i></button><a/></th>
           </tr>
         </thead>
         <tbody>
