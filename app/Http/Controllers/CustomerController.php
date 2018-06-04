@@ -20,7 +20,8 @@ class CustomerController extends Controller
     public function index()
     {
         //
-        return view('customers.index');
+        $customers = Customer::all();
+        return view('customers.index', compact('customers'));
     }
 
     /**
@@ -31,6 +32,7 @@ class CustomerController extends Controller
     public function create()
     {
         //
+        return view('customers.create');
     }
 
     /**
@@ -42,6 +44,20 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate(request(), [
+            'name' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+        ]);
+
+        $customer = new Customer;
+        $customer->name = request('name');
+        $customer->address = request('address');
+        $customer->phone = request('phone');
+        $customer->save();
+
+        return redirect()->action('CustomerController@index');
     }
 
     /**
@@ -64,6 +80,7 @@ class CustomerController extends Controller
     public function edit(Customer $customer)
     {
         //
+        return view('customers.edit', compact('customer'));
     }
 
     /**
@@ -76,8 +93,12 @@ class CustomerController extends Controller
     public function update(Request $request, Customer $customer)
     {
         //
+        $customer->name = request('name');
+        $customer->address = request('address');
+        $customer->phone = request('phone');
+        $customer->save();
+        return redirect()->action('CustomerController@index');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -87,5 +108,7 @@ class CustomerController extends Controller
     public function destroy(Customer $customer)
     {
         //
+        $customer->delete();
+        return redirect()->action('CustomerController@index');
     }
 }
